@@ -1,18 +1,20 @@
-const main = document.getElementById('main-div');
-const details = document.getElementById('details');
-main.style.display='none';
+const main = document.getElementById("main-div");
+const details = document.getElementById("details");
+const score1 = document.getElementById("score1");
+const score2 = document.getElementById("score2");
+main.style.display = "none";
 
-const start = document.getElementById('start');
-start.addEventListener('click',()=>{
-  main.style.display='';
-  details.style.display='none';
-  const player1_input = document.getElementById('player1-name');
-  const player2_input = document.getElementById('player2-name');
-  const player1 = document.getElementById('player1');
-  const player2 = document.getElementById('player2');
+const start = document.getElementById("start");
+start.addEventListener("click", () => {
+  main.style.display = "";
+  details.style.display = "none";
+  const player1_input = document.getElementById("player1-name");
+  const player2_input = document.getElementById("player2-name");
+  const player1 = document.getElementById("player1");
+  const player2 = document.getElementById("player2");
   player1.innerText = player1_input.value;
   player2.innerText = player2_input.value;
-})
+});
 
 const cell_1 = document.getElementById("c1");
 const cell_2 = document.getElementById("c2");
@@ -38,7 +40,6 @@ cells = [
   cell_9,
 ];
 
-
 for (let i = 0; i < 9; i++) {
   cells[i].addEventListener("click", () => {
     if (player_ones_turn) {
@@ -51,7 +52,6 @@ for (let i = 0; i < 9; i++) {
     checkForWinner();
   });
 }
-
 
 function checkForWinner() {
   if (
@@ -184,10 +184,7 @@ function checkForWinner() {
     cell_4.style.color = "red";
     cell_5.style.color = "red";
     cell_6.style.color = "red";
-  }
-
-
-  else if (
+  } else if (
     cell_1.innerText == "O" &&
     cell_2.innerText == "O" &&
     cell_3.innerText == "O"
@@ -314,9 +311,7 @@ function checkForWinner() {
     cell_4.style.color = "red";
     cell_5.style.color = "red";
     cell_6.style.color = "red";
-  }
-
-  else if (
+  } else if (
     (cell_1.innerText == "X" || cell_1.innerText == "O") &&
     (cell_2.innerText == "X" || cell_2.innerText == "O") &&
     (cell_3.innerText == "X" || cell_3.innerText == "O") &&
@@ -329,11 +324,17 @@ function checkForWinner() {
   ) {
     document.getElementById("status").innerHTML = "Match Tie";
   } else {
-
     if (player_ones_turn == true) {
       document.getElementById("status").innerHTML = "Player X Turn";
     } else {
       document.getElementById("status").innerHTML = "Player O Turn";
     }
   }
+
+  if (document.getElementById("status").innerHTML == "Player X won") {
+    score1.innerText = parseInt(score1.innerText) + 1;
+  } else if(document.getElementById("status").innerHTML == "Player O won"){
+    score2.innerText = parseInt(score2.innerText) + 1;
+  }
+  
 }
