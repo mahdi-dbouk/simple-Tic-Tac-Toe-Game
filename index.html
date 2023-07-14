@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="main">
+    <div class="players-info" id="details">
+      <label for="player-1-name">Player 1</label>
+      <input name="player-1-name"  type ="text" id="player1-name"/>
+      <br>
+      <label for="player-1-name">Player 2</label>
+      <input name="player-2-name"  type ="text" id="player2-name"/>
+      <br>
+      <button type="submit" id="start">Start!</button>
+
+    </div>
+    <div class="main" id="main-div">
       <h1 class="title">Tic Tac Toe</h1>
       <div class="score-div">
         <span class="player" id="player1">player1</span>
         <span class="score" id="score1">0</span>
         <span class="player" id="player2">player2</span>
         <span class="score" id="score2">0</span>
+        <span id="status"></span>
       </div>
 
       <div class="game-div">
